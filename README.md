@@ -8,10 +8,14 @@
 
 # 使用须知
 
-- 运行本项目建议使用root权限，或者使用 sudo 提权。
-- 本项目是基于 [clash](https://github.com/Dreamacro/clash) 、[yacd](https://github.com/haishanh/yacd) 进行的配置整合，关于clash、yacd的详细配置请去原项目查看。
-- 使用过程中如遇到问题，请优先从已有的 [issues](https://github.com/wanhebin/clash-for-linux/issues) 中查看是否有解决方法。
+- 运行本项目建议使用root用户，或者使用 sudo 提权。
+- 使用过程中如遇到问题，请优先查已有的 [issues](https://github.com/wanhebin/clash-for-linux/issues)。
 - 在进行issues提交前，请替换提交内容中是敏感信息（例如：订阅地址）。
+- 本项目是基于 [clash](https://github.com/Dreamacro/clash) 、[yacd](https://github.com/haishanh/yacd) 进行的配置整合，关于clash、yacd的详细配置请去原项目查看。
+- 此项目不提供任何订阅信息，请自行准备Clash订阅地址。
+- 运行前请手动更改`.env`文件中的`CLASH_URL`变量值，否则无法正常运行。
+- 当前在RHEL系列和Debian系列Linux系统中测试过，其他系列可能需要适当修改脚本。
+- 支持 x86_64/aarch64 平台
 
 <br>
 
@@ -155,11 +159,3 @@ $ proxy_off
 1.部分Ubuntu系统默认的 shell `/bin/sh` 被更改为 `dash`，运行脚本会出现报错。建议使用 `bash xxx.sh` 运行脚本。
 
 
-<br>
-
-# 使用须知
-
-- 此项目不提供任何订阅信息，请自行准备Clash订阅地址。
-- 运行前请手动更改`.env`文件中的`CLASH_URL`变量值，否则无法正常运行。
-- 当前在RHEL系列和Debian系列Linux系统中测试过，其他系列可能需要适当修改脚本。
-- 支持 x86_64/aarch64 平台
