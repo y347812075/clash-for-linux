@@ -6,6 +6,15 @@
 
 <br>
 
+# 使用须知
+
+- 运行本项目建议使用root权限，或者使用 sudo 提权。
+- 本项目是基于 [clash](https://github.com/Dreamacro/clash) 、[yacd](https://github.com/haishanh/yacd) 进行的配置整合，关于clash、yacd的详细配置请去原项目查看。
+- 使用过程中如遇到问题，请优先从已有的 [issues](https://github.com/wanhebin/clash-for-linux/issues) 中查看是否有解决方法。
+- 在进行issues提交前，请替换提交内容中是敏感信息（例如：订阅地址）。
+
+<br>
+
 # 使用教程
 
 ### 下载项目
