@@ -78,7 +78,7 @@ Text4="配置文件config.yaml下载失败，退出启动！"
 for i in {1..10}
 do
         #curl -s -o $Temp_Dir/clash.yaml $URL
-        wget -q -O $Temp_Dir/clash.yaml $URL
+        wget -q --no-check-certificate -O $Temp_Dir/clash.yaml $URL
 	ReturnStatus=$?
         if [ $ReturnStatus -eq 0 ]; then
                 break
