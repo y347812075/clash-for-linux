@@ -75,7 +75,7 @@ if [[ $CpuArch =~ "x86_64" ]]; then
   nohup $Server_Dir/bin/clash-linux-amd64 -d $Conf_Dir &> $Log_Dir/clash.log &
 	ReturnStatus=$?
 	if_success $Text5 $Text6 $ReturnStatus
-elif [[ $CpuArch =~ "aarch64" ]]; then
+elif [[ $CpuArch =~ "aarch64" ||  $CpuArch =~ "arm64" ]]; then
 	nohup $Server_Dir/bin/clash-linux-arm64 -d $Conf_Dir &> $Log_Dir/clash.log &
 	ReturnStatus=$?
 	if_success $Text5 $Text6 $ReturnStatus
