@@ -156,8 +156,8 @@ $ proxy_off
 
 # 常见问题
 
-1.部分Ubuntu系统默认的 shell `/bin/sh` 被更改为 `dash`，运行脚本会出现报错（报错内容一般会有 `-en [ OK ]
+1.部分Ubuntu系统默认的 shell `/bin/sh` 被更改为 `dash`，运行脚本会出现报错。报错内容一般会有 `-en [ OK ]
 
-`）。建议使用 `bash xxx.sh` 运行脚本。
+`。建议使用 `bash xxx.sh` 运行脚本。
 
 
