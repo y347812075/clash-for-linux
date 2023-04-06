@@ -143,7 +143,7 @@ $ proxy_off
 
 - 登录管理界面
 
-在`API Base URL`一栏中输入：http://IP:9090 ，在`Secret(optional)`一栏中输入启动成功后输出的Secret。
+在`API Base URL`一栏中输入：http://<ip>:9090 ，在`Secret(optional)`一栏中输入启动成功后输出的Secret。
 
 点击Add并选择刚刚输入的管理界面地址，之后便可在浏览器上进行一些配置。
 
