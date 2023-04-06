@@ -103,8 +103,6 @@ sed -ri "s@^# external-ui:.*@external-ui: ${Dashboard_Dir}@g" $Conf_Dir/config.y
 # 随机生成并更新 API Secret
 Secret=`openssl rand -hex 32`
 sed -r -i '/^secret: /s@(secret: ).*@\1'${Secret}'@g' $Conf_Dir/config.yaml
-# Get RESTful API Secret
-Secret=`grep '^secret: ' $Conf_Dir/config.yaml | grep -Po "(?<=secret: ').*(?=')"`
 
 # 获取CPU架构
 if /bin/arch &>/dev/null; then
