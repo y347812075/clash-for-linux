@@ -100,6 +100,9 @@ cat $Temp_Dir/proxy.txt >> $Temp_Dir/config.yaml
 Work_Dir=$(cd $(dirname $0); pwd)
 Dashboard_Dir="${Work_Dir}/dashboard/public"
 sed -ri "s@^# external-ui:.*@external-ui: ${Dashboard_Dir}@g" $Conf_Dir/config.yaml
+# 随机生成并更新 API Secret
+Secret=`openssl rand -hex 32`
+sed -r -i '/^secret: /s@(secret: ).*@\1'${Secret}'@g' $Conf_Dir/config.yaml
 # Get RESTful API Secret
 Secret=`grep '^secret: ' $Conf_Dir/config.yaml | grep -Po "(?<=secret: ').*(?=')"`
 
