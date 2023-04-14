@@ -6,6 +6,9 @@
 # 获取脚本工作目录绝对路径
 Server_Dir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
+# 给二进制启动程序添加可执行权限
+chmod +x $Server_Dir/bin/*
+
 # 加载.env变量文件
 source $Server_Dir/.env
 
