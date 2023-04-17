@@ -17,6 +17,14 @@ Temp_Dir="$Server_Dir/temp"
 Log_Dir="$Server_Dir/logs"
 URL=${CLASH_URL}
 
+# 获取CLASH SECRET 值
+if [ ! $CLASH_SECRET ]; then
+	# 随机生成并更新 API Secret
+	Secret=`openssl rand -hex 32`
+else
+	Secret=${CLASH_SECRET}
+fi
+
 # 自定义action函数，实现通用action功能
 success() {
   echo -en "\\033[60G[\\033[1;32m  OK  \\033[0;39m]\r"
@@ -103,8 +111,6 @@ cat $Temp_Dir/proxy.txt >> $Temp_Dir/config.yaml
 Work_Dir=$(cd $(dirname $0); pwd)
 Dashboard_Dir="${Work_Dir}/dashboard/public"
 sed -ri "s@^# external-ui:.*@external-ui: ${Dashboard_Dir}@g" $Conf_Dir/config.yaml
-# 随机生成并更新 API Secret
-Secret=`openssl rand -hex 32`
 sed -r -i '/^secret: /s@(secret: ).*@\1'${Secret}'@g' $Conf_Dir/config.yaml
 
 # 获取CPU架构
@@ -142,8 +148,8 @@ fi
 
 # Output Dashboard access address and Secret
 echo ''
-echo -e "Clash Dashboard 访问地址：http://<ip>:9090/ui"
-echo -e "Secret：${Secret}"
+echo -e "Clash Dashboard 访问地址: http://<ip>:9090/ui"
+echo -e "Secret: ${Secret}"
 echo ''
 
 # 添加环境变量(root权限)
