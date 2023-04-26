@@ -4,10 +4,11 @@
 # [ -f /etc/init.d/functions ] && source /etc/init.d/functions
 
 # 获取脚本工作目录绝对路径
-Server_Dir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+export Server_Dir=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 
 # 给二进制启动程序添加可执行权限
 chmod +x $Server_Dir/bin/*
+chmod +x $Server_Dir/tools/subconverter/subconverter
 
 # 加载.env变量文件
 source $Server_Dir/.env
@@ -99,8 +100,17 @@ do
 done
 if_success $Text3 $Text4 $ReturnStatus
 
+# 重命名clash配置文件
+\cp -a $Temp_Dir/clash.yaml $Temp_Dir/clash_config.yaml
+
+# 判断订阅内容是否符合clash配置文件标准，尝试转换
+echo -e '\n判断订阅内容是否符合clash配置文件标准:'
+bash $Server_Dir/scripts/clash_profile_conversion.sh
+sleep 3
+
 # 取出代理相关配置 
-sed -n '/^proxies:/,$p' $Temp_Dir/clash.yaml > $Temp_Dir/proxy.txt
+#sed -n '/^proxies:/,$p' $Temp_Dir/clash.yaml > $Temp_Dir/proxy.txt
+sed -n '/^proxies:/,$p' $Temp_Dir/clash_config.yaml > $Temp_Dir/proxy.txt
 
 # 合并形成新的config.yaml
 cat $Temp_Dir/templete_config.yaml > $Temp_Dir/config.yaml
