@@ -1,3 +1,5 @@
+[TOC]
+
 # 项目介绍
 
 此项目是通过使用开源项目[clash](https://github.com/Dreamacro/clash)作为核心程序，再结合脚本实现简单的代理功能。
@@ -21,7 +23,7 @@
 
 # 使用教程
 
-### 下载项目
+## 下载项目
 
 下载项目
 
@@ -40,7 +42,7 @@ $ vim .env
 
 <br>
 
-### 启动程序
+## 启动程序
 
 直接运行脚本文件`start.sh`
 
@@ -102,7 +104,7 @@ https_proxy=http://127.0.0.1:7890
 
 <br>
 
-### 重启程序
+## 重启程序
 
 如果需要对Clash配置进行修改，请修改 `conf/config.yaml` 文件。然后运行 `restart.sh` 脚本进行重启。
 
@@ -111,7 +113,7 @@ https_proxy=http://127.0.0.1:7890
 
 <br>
 
-### 停止程序
+## 停止程序
 
 - 进入项目目录
 
@@ -137,7 +139,7 @@ $ proxy_off
 
 <br>
 
-### Clash Dashboard
+## Clash Dashboard
 
 - 访问 Clash Dashboard
 
