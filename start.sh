@@ -89,7 +89,7 @@ Text3="配置文件config.yaml下载成功！"
 Text4="配置文件config.yaml下载失败，退出启动！"
 for i in {1..10}
 do
-        #curl -s -o $Temp_Dir/clash.yaml $URL
+        #curl -L -k -sS --retry 3 -m 10 -o $Temp_Dir/clash.yaml $URL
         wget -q --no-check-certificate -O $Temp_Dir/clash.yaml $URL
 	ReturnStatus=$?
         if [ $ReturnStatus -eq 0 ]; then
