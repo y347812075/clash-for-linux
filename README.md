@@ -19,6 +19,8 @@
 - 当前在RHEL系列和Debian系列Linux系统中测试过，其他系列可能需要适当修改脚本。
 - 支持 x86_64/aarch64 平台
 
+> **注意**：当你在使用此项目时，遇到任何无法独自解决的问题请优先前往 [Issues](https://github.com/wanhebin/clash-for-linux/issues) 寻找解决方法。由于空闲时间有限，后续将不再对Issues中 “已经解答”、“已有解决方案” 的问题进行重复性的回答。
+
 <br>
 
 # 使用教程
