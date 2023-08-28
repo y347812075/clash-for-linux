@@ -22,10 +22,9 @@ else
     else
       echo "解码后的内容不符合clash标准，尝试将其转换为标准格式"
       ${Server_Dir}/tools/subconverter/subconverter -g &>> ${Server_Dir}/logs/subconverter.log
-      converted_content=$(cat ${Server_Dir}/temp/clash_config.yaml)
+      converted_file=${Server_Dir}/temp/clash_config.yaml
       # 判断转换后的内容是否符合clash配置文件标准
-      #if cat ./temp/clash_config.yaml | jq 'has("proxies") and has("proxy-groups") and has("rules")' 2>/dev/null; then
-      if echo "$converted_content" | awk '/^proxies:/{p=1} /^proxy-groups:/{g=1} /^rules:/{r=1} p&&g&&r{exit} END{if(p&&g&&r) exit 0; else exit 1}'; then
+      if awk '/^proxies:/{p=1} /^proxy-groups:/{g=1} /^rules:/{r=1} p&&g&&r{exit} END{if(p&&g&&r) exit 0; else exit 1}' $converted_file; then
         echo "配置文件已成功转换成clash标准格式"
       else
         echo "配置文件转换标准格式失败"
